@@ -10,3 +10,4 @@ Setting up for the game Black Jack
 8. Ace as a one or eleven
 9. number cards face value, face cards are 10.
 10. assigning suits randomly
+11. random number generator for suits, numbers and face cards.
