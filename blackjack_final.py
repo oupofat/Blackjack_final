@@ -14,6 +14,11 @@ number_pick = random.choice(number_card)
     
     
 print(number_pick, suit_pick)
+
+
+
+
+
     eleven = {jack:"10"}
     twelve = {Queen:"10"}
     thirteen = {king:"10"}
