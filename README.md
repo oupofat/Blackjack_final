@@ -1,4 +1,4 @@
-Setting up files for the game Black Jack
+Setting up for the game Black Jack
 
 1. player 1
 2. dealer(computer player)
