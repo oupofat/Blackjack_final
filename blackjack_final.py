@@ -14,7 +14,7 @@ face_cards = {
     "Queen" : 10,
     "King" : 10,
 }
-return (face_cards[""])
+print (face_cards.get("Jack" or "Queen" or "King"))
 if number_pick == "ace":
     ace_choice = input("do you want it to be a 1 or 11?")
     
