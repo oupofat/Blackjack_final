@@ -1,6 +1,6 @@
 import random
 #this chunk randoms a suit
-suits = ['hearts', 'diamonds', 'spades', 'clovers']
+suits = ['of hearts', ' of diamonds', 'of spades', 'of clovers']
 suit_pick = random.choice(suits)      
 print (suit_pick)
 
@@ -15,6 +15,7 @@ face_cards = {
     "King" : 10,
 }
 print (face_cards.get("Jack" or "Queen" or "King"))
+#if ace player chooses if they want a 1 or 11.
 if number_pick == "ace":
     ace_choice = input("do you want it to be a 1 or 11?")
     
