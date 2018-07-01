@@ -6,7 +6,8 @@ player2_card1 = 0
 player2_card2 = 0
 face_card = 0
 
-
+print ("welcome to the game of Blackjack")
+print ("closest to 21 wins")
 #this chunk randoms a suit
 suits = ['of Hearts', 'of Diamonds', 'of Spades', 'of Clovers']
 suit_pick = random.choice(suits)      
@@ -22,7 +23,7 @@ def get_card_pick():
         face_card = 10
       #if ace player chooses if they want a 1 or 11.
     elif card_pick == "Ace":
-        face_card = int(input("do you want it to be a 1 or 11?"))
+        face_card = int(input("Do you want it to be a 1 or 11?"))
     else:
         face_card = card_pick
     return (face_card)
