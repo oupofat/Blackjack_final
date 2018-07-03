@@ -9,7 +9,9 @@ dealer_card1 = 0
 dealer_card2 = 0 
 total_dealer = 0 
 face_card = 0 
-
+print ("welcome to the game of Blackjack")
+print ("closest to 21 wins")
+print ("____________________")
 #this chunk randoms a suit
 suits = ['of Hearts', 'of Diamonds', 'of Spades', 'of Clovers']
 suit_pick = random.choice(suits)      
@@ -37,32 +39,64 @@ print (player1_card2, suit_pick)
 
 #adds the total for the player one and prints it
 total_player1 = player1_card1 + player1_card2
-print (total_player1)
+
 print ("Your total is" , total_player1, "Player one")
-#dealer cards section
-dealer_card1 = get_card_pick()
-dealer_card2 = get_card_pick()
-print (dealer_card1,suit_pick, ",", dealer_card2, suit_pick)
-total_dealer = dealer_card1 + dealer_card2
-print (total_dealer)
+
+
 #looking at trying to put the hit card into a function
 def card_total():
     hit_card = 0
     total = 0
+    total = int(input("total of cards"))
     while True:
-        if total <= 21:
+        if total <= 21:            
             hit_me = input("do you want a another card, hit or n")
             if hit_me == "hit":
                 hit_card = get_card_pick()
-                hit_card += int(input("add card to your hand "))
-                total = hit_card 
+                print(hit_card, suit_pick)
+                total += hit_card
                 print("Your new total is ", total)
             if hit_card > 21:
                 print (total, "You lose")
                 return (total)
             if hit_me == "n":
+                total = total_player1
                 print("Stay")
                 print("Staying on ",total)
                 return (total)
-total_player1 = card_total()
-total_dealer = card_total()
+card_total()
+
+#dealer cards section
+dealer_card1 = get_card_pick()
+print(dealer_card1, suit_pick)
+dealer_card2 = get_card_pick()
+print(dealer_card2, suit_pick)
+def dealer_cards ():
+    draw_card = 0 
+    total = 0 
+    total = int(input("Dealer Total"))
+    while True:
+        if total < 17:
+            draw_card = get_card_pick()
+            print(draw_card, suit_pick)
+            total += draw_card
+        if total >= 17:
+            if total > 21:
+                print(total,"dealer bust")
+                return(total)
+            else:
+                print(total, "dealer stays")
+                return(total)
+dealer_cards()  
+
+def game_play(dealer, player1):
+    if player1 < dealer:
+        print("dealer wins")
+    if player1 > dealer:
+        print("player one wins")
+    if player1 == dealer:
+        print("its a tie! Push!!")
+    
+dealer = dealer_cards()
+player1 = card_total()
+game_play(dealer,player1)  

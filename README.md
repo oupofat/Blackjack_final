@@ -12,3 +12,5 @@ Setting up for the game Black Jack
 10. assigning suits randomly
 11. random number generator for suits, numbers and face cards.
 12. counters one for the computer and the player
+13. need to break the game if someone busts
+14. need to link the scores into a function to determine a winner
