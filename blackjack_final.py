@@ -44,47 +44,55 @@ print ("Your total is" , total_player1, "Player one")
 
 
 #looking at trying to put the hit card into a function
-def card_total():
+def card_total(total_player1):
     hit_card = 0
-    total = 0
-    total = int(input("total of cards"))
     while True:
-        if total <= 21:            
+        if total_player1 <= 21:            
             hit_me = input("do you want a another card, hit or n")
             if hit_me == "hit":
                 hit_card = get_card_pick()
                 print(hit_card, suit_pick)
-                total += hit_card
-                print("Your new total is ", total)
+                total_player1 += hit_card
+                print("Your new total is ", total_player1)
             if hit_card > 21:
-                print (total, "You lose")
-                return (total)
+                print (total_player1, "You lose")
+                return (total_player1)
             if hit_me == "n":
-                total = total_player1
                 print("Stay")
-                print("Staying on ",total)
-                return (total)
-card_total()
+                print("Staying on ",total_player1)
+                return (total_player1)
+
 
 #dealer cards section
 dealer_card1 = get_card_pick()
 print(dealer_card1, suit_pick)
 dealer_card2 = get_card_pick()
 print(dealer_card2, suit_pick)
-def dealer_cards ():
+def dealer_cards (total_dealer):
     draw_card = 0 
-    total = 0 
-    total = int(input("Dealer Total"))
+
     while True:
-        if total < 17:
+        if total_dealer < 17:
             draw_card = get_card_pick()
             print(draw_card, suit_pick)
-            total += draw_card
-        if total >= 17:
-            if total > 21:
-                print(total,"dealer bust")
-                return(total)
+            total_dealer += draw_card
+        if total_dealer >= 17:
+            if total_dealer > 21:
+                print(total_dealer,"dealer bust")
+                return(total_dealer)
             else:
-                print(total, "dealer stays")
-                return(total)
-dealer_cards()    
+                print(total_dealer, "dealer stays")
+                return(total_dealer)
+
+
+def game_play(dealer, player1):
+    if player1 < dealer:
+        print("dealer wins")
+    if player1 > dealer:
+        print("player one wins")
+    if player1 == dealer:
+        print("its a tie! Push!!")
+    
+dealer = dealer_cards(total_dealer)
+player1 = card_total(total_player1)
+game_play(dealer,player1)  
