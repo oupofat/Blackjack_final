@@ -2,6 +2,7 @@ import random
 print ("**********************************")
 print ("*welcome to the game of Blackjack*")
 print ("*      closest to 21 wins        *")
+print ("* Don't go over or you will lose *")
 print ("**********************************")
 
 #import statements
@@ -53,7 +54,7 @@ def card_total(total_player1):
                 print("Your new total is ", total_player1)
             if total_player1 >= 22:
                 print (total_player1, "You lose")
-                break
+                return(total_player1)
             if hit_me == "n":
                 print("Stay")
                 print("Staying on ",total_player1)
@@ -71,7 +72,6 @@ def dealer_cards (total_dealer):
         if total_dealer >= 17:
             if total_dealer > 21:
                 print(total_dealer,"dealer bust")
-                stop
                 return(total_dealer)
             else:
                 print(total_dealer, "dealer stays")
@@ -110,5 +110,10 @@ def game_play(dealer, player1):
         print("its a tie! Push!!")
     
 dealer = dealer_cards(total_dealer)
-player1 = card_total(total_player1)
-game_play(dealer,player1)  
+#print("dealer",dealer)
+if dealer <=21:
+  player1 = card_total(total_player1)  
+  #print("player1",player1) 
+  if player1 <= 21:
+
+    game_play(dealer,player1)  

@@ -1,5 +1,9 @@
 import random
 
+print ("welcome to the game of Blackjack")
+print ("closest to 21 wins")
+print ("____________________")
+
 #import statements
 #counter for player
 player1_card1 = 0
