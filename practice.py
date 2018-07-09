@@ -1,5 +1,12 @@
 import random
 
+#records class
+class Record(object):
+    def __init__(self, **kw):
+        self.__dict__.update(kw)
+
+    def __repr__(self):
+        return "Record%r" % self.__dict__
 #function definitions
 
 #this grabs a random card number or face card
@@ -69,15 +76,26 @@ print ("**********************************")
 
 #import statements
 #counter for player
-player1_card1 = 0
-player1_card2 = 0
-total_player1 = 0
+#player1_card1 = 0
+#player1_card2 = 0
+#total_player1 = 0
 
 #dealer draw cards
-dealer_card1 = 0 
-dealer_card2 = 0 
-total_dealer = 0 
+#dealer_card1 = 0 
+#dealer_card2 = 0 
+#total_dealer = 0 
+#records for player one and the dealer.
+player_one = Record (
+    player_one_card_one = 0,
+    player_one_card_two = 0, 
+    total_player1 = 0,
+    )
 
+dealer = Record(
+    dealer_card_one = 0, 
+    dealer_card_two = 0, 
+    total_dealer = 0,
+    )
 
 
 #variable initialization
