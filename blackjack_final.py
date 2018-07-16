@@ -32,23 +32,23 @@ def deal_random_card():
     return(face_card,suit_pick)
 
     #looking at trying to put the hit card into a function
-def get_player_cards(total_player1):
+def get_player_cards(total):
     hit_card = 0
     while True:
-        if total_player1 <= 21:            
+        if player1.total <= 21:            
             hit_me = input("Would you like a another card, hit or n")
             if hit_me == "hit":
                 hit_card = deal_random_card()
                 print(hit_card)
-                total_player1 += hit_card[0]
-                print("Your new total is ", total_player1)
-            if total_player1 >= 22:
-                print (total_player1, "You lose")
-                return(total_player1)
+                player1.total += hit_card[0]
+                print("Your new total is ", player1.total)
+            if player1.total >= 22:
+                print (player1.total, "You lose")
+                return(player1.total)
             if hit_me == "n":
                 print("Stay")
-                print("Staying on ",total_player1)
-                return (total_player1)
+                print("Staying on ",player1.total)
+                return (player1.total)
 
 #dealer draw cards
 def draw_cards_for_dealer(total_dealer):
@@ -85,10 +85,10 @@ print ("**********************************")
 #dealer_card2 = 0 
 #total_dealer = 0 
 #records for player one and the dealer.
-player_one = Record (
-    player_one_card_one = 0,
-    player_one_card_two = 0, 
-    total_player1 = 0,
+player1 = Record (
+    card1 = 0,
+    card2 = 0, 
+    total = 0,
     )
 
 dealer = Record(
@@ -101,13 +101,13 @@ dealer = Record(
 #variable initialization
 
 #prints player ones cards
-player1_card1 = deal_random_card()
-print (player1_card1)
-player1_card2 = deal_random_card()
-print (player1_card2)
+player1.card1 = deal_random_card()
+print (player1.card1)
+player1.card2 = deal_random_card()
+print (player1.card2)
 #adds the total for the player one and prints it grabbing the first postion in the tuple.
-total_player1 = (player1_card1[0] + player1_card2[0])
-print ("Your total is" , total_player1, "Player one")
+player1.total = (player1.card1[0] + player1.card2[0])
+print ("Your total is" , player1.total, "Player one")
 
 #dealer cards section
 dealer_card1 = deal_random_card()
@@ -132,7 +132,7 @@ def run_game_play_find_winner(dealer, player1):
 dealer = draw_cards_for_dealer(total_dealer)
 #print("dealer",dealer)
 if dealer <=21:
-  player1 = get_player_cards(total_player1)  
+  player1 = get_player_cards(player1.total)  
   #print("player1",player1) 
   if player1 <= 21:
 
